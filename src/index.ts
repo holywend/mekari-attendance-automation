@@ -39,7 +39,7 @@ switch (task) {
       if (isNaN(hour as number) || isNaN(minute as number)) {
         throw new Error("Invalid time format. Expected HH:mm");
       }
-      return `${minute} ${hour} * * *`;
+      return `${minute} ${hour} * * 1-5`;
     };
     console.log(convertTimeToCron(clockinTime), convertTimeToCron(clockoutTime));
     console.log("Initialize Clockin CRON");

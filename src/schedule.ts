@@ -23,7 +23,7 @@ const convertTimeToCron = (timeStr: string, label: string) => {
   ) {
     throw new Error(`Invalid ${label} time format: ${timeStr}. Expected HH:mm`);
   }
-  return `${minute} ${hour} * * *`;
+  return `${minute} ${hour} * * 1-5`;
 };
 
 const config = await loadAttendanceConfig();

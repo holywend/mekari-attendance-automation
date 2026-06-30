@@ -1,7 +1,7 @@
 # Talenta Attendance — task runner
 # Usage: `make` (or `make help`) to list targets.
 
-SHELL := /bin/zsh
+SHELL := /bin/bash
 LOG   := ./storage/schedule.log
 PID   := ./storage/schedule.pid
 
