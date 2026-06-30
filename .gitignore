@@ -1,0 +1,11 @@
+node_modules
+.env
+storage/credentials.json
+storage/attendance.log
+storage/schedule.log
+storage/schedule.pid
+storage/refresh-capture.txt
+storage/photos/
+docs/*
+img.png
+.DS_Store
