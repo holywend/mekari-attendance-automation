@@ -77,7 +77,7 @@ Run `make` to list targets.
 
 ### Daily scheduler (recommended)
 
-Runs in the background, clocks in/out at the configured times every day, survives idle sleep via `caffeinate`:
+Runs in the background, clocks in/out at the configured times on weekdays only (Mon–Fri), survives idle sleep via `caffeinate`:
 
 ```bash
 make schedule-bg CLOCKIN_TIME=09:00 CLOCKOUT_TIME=18:00
@@ -92,6 +92,8 @@ make stop     # kill the scheduler
 ```
 
 The scheduler refreshes its session lazily — if creds are older than 6 days it pings the refresh endpoint, and if that fails it logs in headless via Playwright using `.env`. You don't need to touch anything weekly.
+
+**Weekdays only:** the cron runs Mon–Fri, so weekends are skipped automatically. Public holidays are *not* skipped — pause the scheduler (`make stop`) on libur nasional or you'll auto-clock-in on a holiday.
 
 **Lid-close caveat:** `caffeinate` blocks idle sleep but not lid-close on battery. Plug into power if you want it to survive a closed lid. For "survives reboot / sleep / wake" you'd want a launchd LaunchAgent — not currently shipped.
 
